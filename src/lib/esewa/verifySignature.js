@@ -1,9 +1,15 @@
-import CryptoJS from "crypto-js";
 
-export function generateEsewaSignature(message) {
-  const secretKey = process.env.ESEWA_SECRET_KEY; 
-  if (!secretKey) throw new Error("Missing ESEWA_SECRET_KEY");
+import crypto from "crypto";
 
-  const hash = CryptoJS.HmacSHA256(message, secretKey);
-  return CryptoJS.enc.Base64.stringify(hash);
+export function generateEsewaSignature(message, secretKey) {
+  if (!secretKey) {
+    throw new Error("ESEWA_SECRET_KEY is not set");
+  }
+
+  const signature = crypto
+    .createHmac("sha256", secretKey)
+    .update(message)
+    .digest("base64");
+
+  return signature;
 }

@@ -58,25 +58,42 @@
 // }
 
 
+import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import Product from "@/models/Product";
-import { NextResponse } from "next/server";
 
 // GET product by ID
-export async function GET_BY_ID(request, context) {
+export async function GET(request, { params }) {
   try {
     await connectDB();
-    const id = context?.params?.id || request.url.split("/").pop();
+    const { id } = await params;
+    
+    console.log("=== Fetching Product ===");
+    console.log("Product ID:", id);
+
     const product = await Product.findById(id).populate("category");
 
     if (!product) {
-      return NextResponse.json({ error: "Product not found" }, { status: 404 });
+      console.log("Product not found:", id);
+      return NextResponse.json(
+        { error: "Product not found" },
+        { status: 404 }
+      );
     }
-    return NextResponse.json(product, { status: 200 });
+
+    console.log("Product found:", product);
+    
+    // ✅ Return in format expected by ProductDetailPage
+    return NextResponse.json({ product }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error("GET Product Error:", error);
+    return NextResponse.json(
+      { error: error.message || "Server error" },
+      { status: 500 }
+    );
   }
 }
+
 
 // UPDATE product
 export async function PUT(request, context) {

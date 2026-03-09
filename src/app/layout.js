@@ -8,15 +8,21 @@ import { usePathname } from "next/navigation";
 export default function RootLayout({ children }) {
   const pathname = usePathname();
 
-  const hideNavbar = pathname.startsWith("/admin"); // Hide navbar on admin pages
+  // ✅ Hide navbar on admin pages
+  const hideNavbar = pathname?.startsWith("/admin") || pathname === "/admin";
 
   return (
     <html lang="en">
-      <body>
+      <body className="m-0 p-0">
         <AuthProvider>
           <CartProvider>
-            {!hideNavbar && <Navbar />} {/* only show for non-admin pages */}
-            <div className="bg-gray-100 min-h-screen p-6">{children}</div>
+            {/* ✅ Navbar - Only show for non-admin pages */}
+            {!hideNavbar && <Navbar />}
+            
+            {/* ✅ Main Content Wrapper */}
+            <main className="min-h-screen bg-gray-50">
+              {children}
+            </main>
           </CartProvider>
         </AuthProvider>
       </body>

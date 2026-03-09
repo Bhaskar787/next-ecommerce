@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
-export default function EsewaPayment() {
+export default function PaymentForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,12 +18,13 @@ export default function EsewaPayment() {
     setError(null);
 
     try {
-      // 1. Initiate payment with the backend
       const response = await fetch("/api/payment/initiate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          amount: parseFloat(formData.amount), // Convert input string to number
+          amount: parseFloat(formData.amount),
+          name: formData.name,
+          email: formData.email,
         }),
       });
 
@@ -36,25 +36,19 @@ export default function EsewaPayment() {
 
       const { paymentUrl, params } = data;
 
-      // 2. Create hidden form for eSewa submission
+      // Create hidden form for eSewa submission
       const form = document.createElement("form");
       form.method = "POST";
       form.action = paymentUrl;
       form.style.display = "none";
 
-      // 3. Helper to add fields (ensures all params from backend are sent)
-      const addField = (name, value) => {
+      // Add all parameters
+      Object.entries(params).forEach(([key, value]) => {
         const input = document.createElement("input");
         input.type = "hidden";
-        input.name = name;
+        input.name = key;
         input.value = value;
         form.appendChild(input);
-      };
-
-      // 4. Map ALL parameters returned by your API
-      // Using Object.entries ensures we don't miss any mandatory V2 fields
-      Object.entries(params).forEach(([key, value]) => {
-        addField(key, value);
       });
 
       document.body.appendChild(form);
@@ -79,7 +73,9 @@ export default function EsewaPayment() {
               required
               className="w-full p-2 border rounded-md outline-green-500"
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
             />
           </div>
 
@@ -90,7 +86,9 @@ export default function EsewaPayment() {
               required
               className="w-full p-2 border rounded-md outline-green-500"
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
             />
           </div>
 
@@ -103,17 +101,23 @@ export default function EsewaPayment() {
               required
               className="w-full p-2 border rounded-md outline-green-500"
               value={formData.amount}
-              onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, amount: e.target.value })
+              }
             />
           </div>
 
-          {error && <p className="text-red-500 text-sm font-medium">{error}</p>}
+          {error && (
+            <p className="text-red-500 text-sm font-medium">{error}</p>
+          )}
 
           <button
             type="submit"
             disabled={isSubmitting}
             className={`w-full text-white py-2 rounded-md font-semibold flex items-center justify-center gap-2 transition-all ${
-              isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-[#41a124] hover:bg-[#368a1e]"
+              isSubmitting
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-[#41a124] hover:bg-[#368a1e]"
             }`}
           >
             {isSubmitting ? "Processing..." : "Pay with eSewa"}
