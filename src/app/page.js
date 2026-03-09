@@ -67,7 +67,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div variants={fadeIn} className="text-center">
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
-              Welcome to <span className="text-blue-200">ShopifyClone</span>
+              Welcome to <span className="text-blue-200">All In One</span>
             </h1>
             <p className="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto mb-8">
               Discover premium products at unbeatable prices. Quality you can trust, delivered to your doorstep.
@@ -124,7 +124,7 @@ export default function Home() {
             <p className="text-gray-500">Handpicked items just for you</p>
           </div>
           <motion.a 
-            href="#" 
+            href="/products" 
             whileHover={{ x: 5 }}
             className="hidden sm:flex items-center gap-2 text-blue-600 font-bold hover:text-blue-800 transition-colors"
           >
@@ -223,7 +223,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">ShopifyClone</h3>
+              <h3 className="text-xl font-bold mb-4">All In One</h3>
               <p className="text-gray-400">Your one-stop shop for everything you need.</p>
             </div>
             <div>
@@ -237,9 +237,9 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4">Support</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/contact" className="hover:text-white">Contact Us</a></li>
-                <li><a href="/faq" className="hover:text-white">FAQ</a></li>
-                <li><a href="/shipping" className="hover:text-white">Shipping</a></li>
+                <li><a href="#" className="hover:text-white">Contact Us</a></li>
+                <li><a href="#" className="hover:text-white">FAQ</a></li>
+                <li><a href="#" className="hover:text-white">Shipping</a></li>
               </ul>
             </div>
             <div>
@@ -257,7 +257,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 ShopifyClone. All rights reserved.</p>
+            <p>&copy; 2024 All In One. All rights reserved.</p>
           </div>
         </div>
       </motion.footer>

@@ -10,6 +10,7 @@ import {
   ShoppingCart, 
   Settings, 
   LogOut, 
+  Mail,
   Menu, 
   X, 
   Search,
@@ -23,6 +24,7 @@ const navigation = [
   { name: "Categories", href: "/admin/categories", icon: Settings },
   { name: "Orders", href: "/admin/orders", icon: ShoppingCart },
   { name: "Users", href: "/admin/users", icon: Users },
+  { name: "Contacts", href: "/admin/contact", icon: Mail }
 ];
 
 export default function AdminLayout({ children }) {
