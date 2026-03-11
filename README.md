@@ -1,36 +1,141 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🛒 Next.js E-Commerce Platform
 
-## Getting Started
+A modern, full-featured e-commerce application built with Next.js, React, and JavaScript.
+This platform provides secure authentication, shopping cart functionality, and integrated online payments.
 
-First, run the development server:
+<a href="https://next-ecommerce-alpha-inky.vercel.app/" target="_blank">
+  <img width="1904" height="696" alt="Next Ecommerce Preview" src="https://github.com/user-attachments/assets/b3714f77-8693-449c-8cf5-da5c48256f52" />
+</a>
 
-```bash
+
+✨ Features
+
+🔐 User Authentication – Secure login and registration system
+🛍️ Shopping Cart – Add, update, and remove items from cart
+💳 Payment Integration – eSewa payment gateway integration
+📦 Order Management – Complete order tracking and history
+🎨 Responsive Design – Mobile-first responsive UI
+⚡ Performance Optimized – Built with Next.js App Router and server components
+🔒 Security – Secure payments and protected data handling
+
+
+🛠️ Tech Stack
+| Category             | Technology               |
+| -------------------- | ------------------------ |
+| **Framework**        | Next.js 14+ (App Router) |
+| **Language**         | JavaScript (JSX)         |
+| **Styling**          | Tailwind CSS             |
+| **Animations**       | Framer Motion            |
+| **Icons**            | Lucide React             |
+| **State Management** | React Context API        |
+| **Payment Gateway**  | eSewa                    |
+| **Deployment**       | Vercel                   |
+
+📦 Installation
+Prerequisites
+- Node.js 18+
+- npm, yarn, or pnpm
+
+Setup steps
+# 1. Clone the repository
+git clone https://github.com/yourusername/next-ecommerce-alpha.git
+
+# 2. Navigate to project directory
+cd next-ecommerce-alpha
+
+# 3. Install dependencies
+npm install
+
+# 4. Setup environment variables
+cp .env.example .env.local
+
+
+🔑 Environment Variables
+
+Create a .env.local file in the root directory.
+
+# Database
+DATABASE_URL=your_database_url
+
+# Authentication
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# Payment Gateway
+ESEWA_MERCHANT_ID=your_esewa_merchant_id
+ESEWA_SECRET_KEY=your_esewa_secret_key
+
+# API Keys
+NEXT_PUBLIC_API_URL=your_api_url
+
+
+🚀 Getting Started
+Development
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Open in browser:
+- http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Production Build
+# Build the project
+npm run build
 
-## Learn More
+# Start production server
+npm start
 
-To learn more about Next.js, take a look at the following resources:
+| Method | Endpoint                | Description            |
+| ------ | ----------------------- | ---------------------- |
+| POST   | `/api/payment/initiate` | Initiate eSewa payment |
+| POST   | `/api/auth/login`       | User login             |
+| POST   | `/api/auth/register`    | User registration      |
+| POST   | `/api/auth/Adminlogin`  | Adminlogin             |
+| POST   | `/api/auth/Adminregister`|Admin Registration     |
+| GET    | `/api/products`         | Get all products       |
+| POST   | `/api/orders`           | Create new order       |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🌐 Deployment
+Vercel (Recommended)
+# Install Vercel CLI
+npm i -g vercel
+# Deploy project
+vercel
 
-## Deploy on Vercel
+Manual Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Build the project
+- npm run build
+- Deploy .next folder to hosting provider
+- Add environment variables in hosting dashboard
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+📱 Browser Support
+| Browser | Supported Version |
+| ------- | ----------------- |
+| Chrome  | Latest            |
+| Firefox | Latest            |
+| Safari  | Latest            |
+| Edge    | Latest            |
+
+
+🤝 Contributing
+
+1. Fork the repository
+1. Create your feature branch
+  - git checkout -b feature/AmazingFeature
+3. Commit your changes
+  - git commit -m "Add some AmazingFeature"
+4. Push to branch
+  - git push origin feature/AmazingFeature
+5. Open a Pull Request
+
+
+🙏 Acknowledgments
+
+Next.js – React framework
+Tailwind CSS – Utility-first CSS framework
+Framer Motion – Animation library
+eSewa – Payment gateway
+
+
