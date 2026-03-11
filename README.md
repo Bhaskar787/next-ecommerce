@@ -38,7 +38,7 @@ Prerequisites
 
 Setup steps
 # 1. Clone the repository
-git clone https://github.com/yourusername/next-ecommerce-alpha.git
+git clone (https://github.com/Bhaskar787/next-ecommerce.git)
 
 # 2. Navigate to project directory
 cd next-ecommerce-alpha
