@@ -443,15 +443,28 @@ export default function Contact() {
             </div>
 
             {/* Map Section */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              <div className="h-64 bg-gray-200 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="text-gray-400 mx-auto mb-2" size={48} />
-                  <p className="text-gray-500">Map Integration</p>
-                  <p className="text-sm text-gray-400 mt-1">Google Maps or similar</p>
-                </div>
-              </div>
-            </div>
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+  <div className="p-6 border-b border-gray-100">
+    <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+      <MapPin className="text-blue-600" size={24} />
+      Our Location
+    </h3>
+    <p className="text-gray-600 mt-1">Broadway Infosys, Kathmandu, Nepal</p>
+  </div>
+  <div className="h-64 md:h-80 lg:h-96">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.030369507926!2d85.34220827492221!3d27.685456226457557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198d99470043%3A0x167d008efb47d64c!2sBroadway%20Infosys!5e0!3m2!1sen!2snp!4v1773246445587!5m2!1sen!2snp"
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      allowFullScreen=""
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      title="Our Location"
+      className="w-full h-full"
+    />
+  </div>
+</div>
           </motion.div>
         </div>
       </div>
