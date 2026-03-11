@@ -2,10 +2,13 @@
 
 import { XCircle, RefreshCw, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
-export default function FailurePage({ searchParams }) {
-  const errorCode = searchParams?.error;
-  const message = searchParams?.message;
+function FailureContent() {
+  const searchParams = useSearchParams();
+  const errorCode = searchParams.get("error");
+  const message = searchParams.get("message");
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -51,5 +54,13 @@ export default function FailurePage({ searchParams }) {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function FailurePage() {
+  return (
+    <Suspense>
+      <FailureContent />
+    </Suspense>
   );
 }
