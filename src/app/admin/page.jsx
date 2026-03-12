@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 import {
   LayoutDashboard,
   Package,
@@ -24,6 +25,7 @@ import {
 } from "lucide-react";
 
 // Toast Notification Component
+
 const Toast = ({ message, type, onClose }) => {
   return (
     <motion.div
@@ -65,6 +67,7 @@ const StatCard = ({ title, value, icon: Icon, trend, trendValue, color }) => {
     orange: "bg-orange-50 text-orange-600",
     purple: "bg-purple-50 text-purple-600",
   };
+  
 
   return (
     <motion.div
@@ -116,6 +119,8 @@ const ActivityItem = ({ icon: Icon, title, time, type }) => {
 };
 
 export default function DashboardPage() {
+
+  const router = useRouter()
   const [stats, setStats] = useState({
     totalProducts: 0,
     totalCategories: 0,
@@ -564,17 +569,35 @@ export default function DashboardPage() {
               Manage your store with ease
             </p>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <button className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm font-medium transition-colors">
-              Add Product
-            </button>
-            <button className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm font-medium transition-colors">
-              View Orders
-            </button>
-            <button className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm font-medium transition-colors">
-              Manage Users
-            </button>
-          </div>
+             <div className="flex flex-wrap gap-3">
+      <button
+        onClick={() => router.push("/admin/products")}
+        className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm font-medium transition-colors"
+      >
+        Add Product
+      </button>
+
+      <button
+        onClick={() => router.push("/admin/orders")}
+        className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm font-medium transition-colors"
+      >
+        View Orders
+      </button>
+
+      <button
+        onClick={() => router.push("/admin/users")}
+        className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm font-medium transition-colors"
+      >
+        Manage Users
+      </button>
+
+      <button
+        onClick={() => router.push("/admin/contact")}
+        className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm font-medium transition-colors"
+      >
+        Manage Contacts
+      </button>
+    </div>
         </div>
       </motion.div>
 
