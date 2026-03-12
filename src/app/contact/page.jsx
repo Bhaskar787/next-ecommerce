@@ -255,7 +255,7 @@ export default function Contact() {
                     className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
                       formErrors.email ? "border-red-500" : "border-gray-300"
                     }`}
-                    placeholder="john@example.com"
+                    placeholder="john@gmail.com"
                   />
                 </div>
                 {formErrors.email && (
@@ -281,7 +281,7 @@ export default function Contact() {
                     className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
                       formErrors.phone ? "border-red-500" : "border-gray-300"
                     }`}
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+977 9825990077"
                   />
                 </div>
                 {formErrors.phone && (
