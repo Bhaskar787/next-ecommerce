@@ -382,21 +382,21 @@ export default function About() {
                 <Mail className="text-blue-600" size={32} />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Email Us</h3>
-              <p className="text-gray-600">support@yourstore.com</p>
+              <p className="text-gray-600">support@allinonestore.com</p>
             </motion.div>
             <motion.div variants={fadeIn} className="text-center">
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Phone className="text-green-600" size={32} />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Call Us</h3>
-              <p className="text-gray-600">+1 (555) 123-4567</p>
+              <p className="text-gray-600">+977 9825990077</p>
             </motion.div>
             <motion.div variants={fadeIn} className="text-center">
               <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="text-purple-600" size={32} />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Visit Us</h3>
-              <p className="text-gray-600">123 Main Street, City, Country</p>
+              <p className="text-gray-600">Kathmandu, Nepal</p>
             </motion.div>
           </div>
         </div>
@@ -471,10 +471,12 @@ export default function About() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 All In One. All rights reserved.</p>
+            <p>&copy; 2024 All In One Store. All rights reserved.</p>
           </div>
         </div>
       </motion.footer>
     </div>
   );
 }
+
+

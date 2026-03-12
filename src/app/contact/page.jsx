@@ -387,8 +387,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                    <p className="text-gray-600">support@yourstore.com</p>
-                    <p className="text-gray-600">info@yourstore.com</p>
+                    <p className="text-gray-600">support@All In One Store.com</p>
+                    <p className="text-gray-600">info@All In One Store.com</p>
                   </div>
                 </div>
 
@@ -398,8 +398,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
-                    <p className="text-gray-600">+1 (555) 987-6543</p>
+                    <p className="text-gray-600">+977 9825990077</p>
+                    <p className="text-gray-600">+977 9836778822</p>
                   </div>
                 </div>
 
@@ -410,8 +410,8 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
                     <p className="text-gray-600">123 Main Street</p>
-                    <p className="text-gray-600">New York, NY 10001</p>
-                    <p className="text-gray-600">United States</p>
+                    <p className="text-gray-600">Kathmandu, Bagmati</p>
+                    <p className="text-gray-600">Nepal</p>
                   </div>
                 </div>
               </div>
@@ -505,7 +505,7 @@ export default function Contact() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Your Store. All rights reserved.</p>
+            <p>&copy; 2024 All In One Store. All rights reserved.</p>
           </div>
         </div>
       </motion.footer>

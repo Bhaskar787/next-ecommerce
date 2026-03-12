@@ -629,22 +629,45 @@ export default function ProductDetailPage() {
     </div>
 
     {/* Footer CTA */}
-    <div className="bg-blue-600 text-white py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-2xl font-bold mb-2">Need Help with This Product?</h2>
-        <p className="text-blue-100 mb-4">Our support team is here to assist you</p>
-        <div className="flex items-center justify-center gap-4">
-          <span className="flex items-center gap-2">
-            <span>📞</span>
-            <span>+977-1-4444444</span>
-          </span>
-          <span className="flex items-center gap-2">
-            <span>✉️</span>
-            <span>support@yourstore.com</span>
-          </span>
+        <motion.footer
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6 }}
+        className="bg-gray-900 text-white py-12 mt-12"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">About Us</h3>
+              <p className="text-gray-400">
+                We are dedicated to providing the best products and exceptional customer service.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="/products" className="hover:text-white transition-colors">Products</a></li>
+                <li><a href="/about" className="hover:text-white transition-colors">About</a></li>
+                <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-4">Follow Us</h3>
+              <div className="flex gap-4">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <Mail size={20} />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <Phone size={20} />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 All In One Store. All rights reserved.</p>
+          </div>
         </div>
-      </div>
-    </div>
+      </motion.footer>
   </div>
 );
 }
