@@ -13,6 +13,8 @@ import {
   CheckCircle,
   ArrowLeft,
   ChevronRight,
+  Mail,
+  Phone,
   Minus,
   Plus,
   X,

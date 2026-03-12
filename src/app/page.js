@@ -27,26 +27,37 @@ export default function Home() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const res = await fetch("/api/products");
-        const data = await res.json();
-        
-        if (Array.isArray(data)) {
-          setProducts(data);
-        } else {
-          setProducts([]);
-        }
-        setLoading(false);
-      } catch (err) {
-        console.error("Error loading products:", err);
-        setError("Failed to load products");
-        setLoading(false);
-      }
-    };
+  const loadData = async () => {
+    try {
+      const res = await fetch("/api/products");
+      const data = await res.json();
 
+      if (Array.isArray(data)) {
+        setProducts(data);
+      } else {
+        setProducts([]);
+      }
+
+      setLoading(false);
+    } catch (err) {
+      console.error("Error loading products:", err);
+      setError("Failed to load products");
+      setLoading(false);
+    }
+  };
+
+  // first load
+  loadData();
+
+  // revalidate every 6 seconds
+  const interval = setInterval(() => {
     loadData();
-  }, []);
+  }, 6000);
+
+  // cleanup
+  return () => clearInterval(interval);
+
+}, []);
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
