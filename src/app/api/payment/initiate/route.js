@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {
-    const { amount } = await req.json();
+    const { amount, transaction_uuid: external_uuid } = await req.json();
 
     if (!amount || Number(amount) <= 0) {
       return NextResponse.json(
@@ -13,7 +13,7 @@ export async function POST(req) {
     }
 
     const total_amount = Number(amount);
-    const transaction_uuid = `TXN-${Date.now()}`;
+    const transaction_uuid = external_uuid || `TXN-${Date.now()}`;
     const product_code = process.env.ESEWA_PRODUCT_CODE;
 
     const message = `total_amount=${total_amount},transaction_uuid=${transaction_uuid},product_code=${product_code}`;

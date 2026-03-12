@@ -68,10 +68,37 @@ export default function CheckoutPage() {
     try {
       setLoading(true);
 
+      // 1. Create a pending order first
+      const orderItems = cart.map((item) => ({
+        productId: item.product._id,
+        title: item.product.title,
+        price: item.product.price,
+        quantity: item.quantity,
+      }));
+
+      const orderRes = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: user._id,
+          items: orderItems,
+          total: totalAmount,
+        }),
+      });
+
+      const orderData = await orderRes.json();
+      if (!orderRes.ok) throw new Error(orderData.message || "Failed to create order");
+
+      const { orderId } = orderData;
+
+      // 2. Initiate eSewa payment with the Order ID as transaction_uuid
       const res = await fetch("/api/payment/initiate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: totalAmount }),
+        body: JSON.stringify({ 
+          amount: totalAmount,
+          transaction_uuid: orderId 
+        }),
       });
 
       const data = await res.json();
